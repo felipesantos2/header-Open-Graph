@@ -30,15 +30,17 @@ class Open_Graph
         <meta name="description" content="<?php echo bloginfo('description') ?>">
 
         <!-- Facebook Meta Tags -->
-        <meta property="og:url" content="<?php echo get_site_url(); ?>">
-        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
         <meta property="og:title" content="<?php bloginfo('name'); ?>">
         <meta property="og:description" content="<?php echo bloginfo('description') ?>">
-        <meta property="og:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')) ?>">
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:type" content="image/jpg" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:alt" content="<?php echo get_the_title(get_the_ID(), 'medium') ?>" />
+        <meta property="og:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID())) ?>">
+        <meta property="og:type" content="Website">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="300">
+        <meta property="og:image:height" content="300">
+        <meta property="og:image:alt" content="<?php echo get_the_title(get_the_ID()) ?>">
+        <meta property="og:url" content="<?php echo get_site_url(); ?>">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
@@ -46,8 +48,9 @@ class Open_Graph
         <meta property="twitter:url" content="<?php echo get_site_url(); ?> ">
         <meta name="twitter:title" content="<?php bloginfo('name'); ?>">
         <meta name="twitter:description" content="<?php echo bloginfo('description') ?>">
-        <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')) ?>">
+        <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID())) ?>">
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
 
 <?php
 
