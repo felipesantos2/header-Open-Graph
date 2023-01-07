@@ -15,17 +15,15 @@ if (isset($_SERVER['SCRIPT_FILENAME']) and basename(__FILE__) == basename($_SERV
 
 class Open_Graph
 {
-    function  __construct()
-    {
-
+    function  __construct() {
         add_action('wp_head', array($this, 'add_header_open_graph'), PHP_INT_MAX);
     }
 
 
 
-    function add_header_open_graph()
-    {
-?>
+    function add_header_open_graph() {
+
+    ?>
         <!-- HTML Meta Tags -->
         <meta name="description" content="<?php echo bloginfo('description') ?>">
 
@@ -46,7 +44,9 @@ class Open_Graph
         <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
 <?php
+
     }
+
 }
 
 $open_graph = new Open_Graph();
