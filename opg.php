@@ -17,6 +17,7 @@ class Open_Graph
 {
     function  __construct() {
         add_action('wp_head', array($this, 'add_header_open_graph'), PHP_INT_MAX);
+        add_action('language_attributes', array($this, 'opengraph_xml'), PHP_INT_MAX);
     }
 
 
@@ -38,12 +39,12 @@ class Open_Graph
         <meta property="og:image:width" content="300">
         <meta property="og:image:height" content="300">
         <meta property="og:image:alt" content="<?php echo get_the_title(get_the_ID()); ?>">
-        <meta property="og:url" content="<?php echo get_site_url(); ?>">
+        <meta property="og:url" content="<?php the_permalink(); ?>">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="<?php echo get_site_url(); ?>">
-        <meta property="twitter:url" content="<?php echo get_site_url(); ?> ">
+        <meta property="twitter:url" content="<?php the_permalink(); ?> ">
         <meta name="twitter:title" content="<?php bloginfo('name'); ?>">
         <meta name="twitter:description" content="<?php the_title(); ?>">
         <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID())); ?>">
@@ -52,6 +53,10 @@ class Open_Graph
 
 <?php
 
+    }
+
+    function opengraph_xml() {
+        return 'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
     }
 
 }
